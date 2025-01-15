@@ -4,7 +4,7 @@ import java.util.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "`order`") // backticks because "order" is often a reserved keyword
+@Table(name = "`order`")
 public class Order {
 
     @Id
@@ -17,9 +17,7 @@ public class Order {
 
     @Column(name = "customer_name", nullable = false)
     private String customerName;
-
-    // Many-to-many with Product, using the join table "order_detail"
-    // No cascade REMOVE so that deleting an Order doesn't delete Products.
+    
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "order_detail",
@@ -34,9 +32,6 @@ public class Order {
         this.date = date;
         this.customerName = customerName;
     }
-
-    // Getters and setters
-
     public Long getId() {
         return id;
     }
