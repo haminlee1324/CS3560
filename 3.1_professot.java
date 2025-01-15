@@ -16,7 +16,6 @@ public class Professor {
     @Column(name = "research_area", nullable = false)
     private String researchArea;
 
-    // Foreign Key to Customer
     @OneToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id", nullable = false)
     private Customer customer;
@@ -27,8 +26,6 @@ public class Professor {
         this.officeNumber = officeNumber;
         this.researchArea = researchArea;
     }
-
-    // --- Getters / Setters ---
 
     public Long getId() {
         return id;
