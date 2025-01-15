@@ -16,21 +16,16 @@ public class MainCreateOrder {
         try {
             transaction = session.beginTransaction();
 
-            // Create some products
             Product p1 = new Product("Laptop");
             Product p2 = new Product("Keyboard");
-
-            // Save products first (no cascade for persist)
+            
             session.save(p1);
             session.save(p2);
 
-            // Create an Order
             Order order = new Order(new Date(), "Alice");
-            // Associate the products
             order.getProducts().add(p1);
             order.getProducts().add(p2);
 
-            // Persist the order
             session.save(order);
 
             transaction.commit();
