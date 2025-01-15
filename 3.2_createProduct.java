@@ -12,8 +12,6 @@ public class MainCreateProduct {
 
         try {
             transaction = session.beginTransaction();
-
-            // Create a standalone product
             Product product = new Product("Smartphone");
             session.save(product);
 
