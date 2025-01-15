@@ -7,18 +7,15 @@ import org.hibernate.Transaction;
 
 public class MainDeleteOrder {
     public static void main(String[] args) {
-        Long orderIdToDelete = 1L; // example ID to delete
-
+        Long orderIdToDelete = 1L;
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = null;
 
         try {
             transaction = session.beginTransaction();
 
-            // Retrieve the order
             Order order = session.get(Order.class, orderIdToDelete);
             if (order != null) {
-                // Delete the order
                 session.delete(order);
                 System.out.println("Deleted Order with ID = " + orderIdToDelete);
             } else {
