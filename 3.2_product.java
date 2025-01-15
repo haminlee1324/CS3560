@@ -14,7 +14,6 @@ public class Product {
     @Column(nullable = false)
     private String name;
 
-    // Mapped by 'products' in Order
     @ManyToMany(mappedBy = "products", fetch = FetchType.LAZY)
     private Set<Order> orders = new HashSet<>();
 
@@ -23,8 +22,6 @@ public class Product {
     public Product(String name) {
         this.name = name;
     }
-
-    // Getters and setters
 
     public Long getId() {
         return id;
