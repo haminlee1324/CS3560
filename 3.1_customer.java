@@ -16,7 +16,6 @@ public class Customer {
     @Column(nullable = false)
     private String address;
 
-    // One-to-one relationship (Customer is the “parent” side)
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     private Professor professor;
 
@@ -26,14 +25,10 @@ public class Customer {
         this.name = name;
         this.address = address;
     }
-
-    // --- Getters / Setters ---
-
+    
     public Long getId() {
         return id;
     }
-
-    // No need for setId(...) if you’re relying on auto-generation
 
     public String getName() {
         return name;
