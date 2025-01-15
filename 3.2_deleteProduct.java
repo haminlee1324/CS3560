@@ -15,10 +15,8 @@ public class MainDeleteProduct {
         try {
             transaction = session.beginTransaction();
 
-            // Retrieve the product
             Product product = session.get(Product.class, productIdToDelete);
             if (product != null) {
-                // Delete the product
                 session.delete(product);
                 System.out.println("Deleted Product with ID = " + productIdToDelete);
             } else {
